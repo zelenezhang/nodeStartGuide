@@ -23,6 +23,9 @@
 ## node.js事件轮询？？？
 单线程通过事件轮询来进行并行操作
 
+# 运行方式
+命令行启动：node index.js
+浏览器打开：localhost:8888
 
-
-
+# 文件组织结构
+index.js引入server，router，requestHandlers,然后调用server.start()方法，创建服务器。server.start()参数1.router.route:进行路径选择,2. 

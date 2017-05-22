@@ -7,19 +7,20 @@ var start=(route,handler)=>{
 		if (request.url=='/favicon,ico') { request.end() }
 		var pathname=url.parse(request.url).pathname//请求的url
 		console.log(`request form ${pathname} received`)
-		request.setEncoding('utf-8')
+		route(pathname,handler,response,request)
+		//request.setEncoding('utf-8')
 		//监听request事件
-		var postData=''
-		request.addListener('data',function(piece){//
-			//有新数据到来时执行
-			postData+=piece
-			console.log(`Recieved postData piece: ${piece} .`)
-		})
-		request.addListener('end',function(){
-			//所有数据接收完毕后执行
-			//路由请求
-			route(pathname,handler,response,postData)
-		})
+		// var postData=''
+		// request.addListener('data',function(piece){//
+		// 	//有新数据到来时执行
+		// 	postData+=piece
+		// 	console.log(`Recieved postData piece: ${piece} .`)
+		// })
+		// request.addListener('end',function(){
+		// 	//所有数据接收完毕后执行
+		// 	//路由请求
+		// 	route(pathname,handler,response,postData)
+		// })
 
 		
 		//请求响应
